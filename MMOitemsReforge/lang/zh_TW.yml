@@ -1,0 +1,48 @@
+# 繁體中文語言文件
+# Chinese (Traditional) Language File
+
+messages:
+  prefix: "&6[MMOReforge] &r"
+  no-permission: "&c你沒有權限執行此命令。"
+  reload-success: "&a配置文件已成功重載！"
+  invalid-item: "&c此物品無法被重鑄。"
+  insufficient-funds: "&c你沒有足夠的金幣。"
+  insufficient-funds-detail: "&c金幣不足: {current}/{required}"
+  invalid-number: "&c無效的數字格式"
+  
+  # 重鑄相關消息
+  reforge-success: "&a重鑄成功！裝備屬性已刷新。"
+  not-reforgeable: "&c此裝備無法重鑄。"
+  only-mmoitems: "&c只有MMOItems裝備可以重鑄。"
+  place-item-reforge: "&e請放置需要重鑄的裝備"
+  no-reforge-material: "&c請放入重鑄材料"
+  invalid-reforge-material: "&c這不是有效的重鑄材料"
+  reforgekit-given: "&a你獲得了一個重鑄石"
+  lucky-gained: "&e獲得 {gained} 點幸運值！當前: {total}"
+  lucky-insufficient: "&c幸運值不足！至少需要 {min} 點，當前 {current} 點"
+  # 詞綴重鑄相關消息
+  affix-reforge-success: "&a詞綴重鑄成功！裝備獲得了新詞綴。"
+  affix-removed: "&7已移除舊詞綴: {affix}"
+  mode-switched-quality: "&b已切換到品質重鑄模式"
+  mode-switched-affix: "&a已切換到詞綴重鑄模式"
+  
+  # 確認按鈕材料顯示
+  confirm-required-materials: "&e所需材料:"
+  confirm-material-line: "  {status} {material} {current}/{required}"
+  
+  # 幸運按鈕
+  lucky-cost-all: "全部"
+  
+  # 命令相關消息
+  reforge-usage: "&c用法: /mmoreforge reforge <玩家名>"
+  player-not-found: "&c玩家 {player} 不在線或不存在。"
+  reforge-opened-for-player: "&a已為玩家 {player} 打開重鑄界面。"
+  
+  # 直接重鑄命令
+  command-player-only: "&c該命令只能由玩家執行。"
+  command-must-hold-item: "&c你必須手持一個物品。"
+  command-not-mmoitem: "&c該物品不是有效的 MMOItem。"
+  quality-reforge-success: "&a品質重鑄成功！"
+  quality-reforge-failed: "&c品質重鑄失敗。"
+  affix-reforge-success-cmd: "&a詞綴重鑄成功！"
+  affix-reforge-failed: "&c詞綴重鑄失敗。"

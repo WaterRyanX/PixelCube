@@ -1,0 +1,261 @@
+# MMOitemsReforge Configuration
+# Config file version, do not modify manually
+config-version: 2
+
+# Language setting (zh_CN=Simplified Chinese, zh_TW=Traditional Chinese, en_US=English)
+language: en_US
+
+# Debug mode (for troubleshooting)
+# When enabled, detailed debug information will be output to console
+debug: false
+
+# Enable BStats metrics (anonymous usage statistics)
+# Set to false to disable data collection
+metrics: true
+
+# Update checker settings
+# Check for new plugin versions and notify admins
+update-checker: true
+
+# Equipment reforge settings
+reforge:
+  # Allow reforging all items (when true, ignores item type restrictions and allowed-item-types config)
+  allow-all-items: false
+  
+  # Reforge cost (Vault currency)
+  cost: 50.0  # Quality reforge cost
+  affix-cost: 100.0  # Affix reforge cost
+  
+  # Maximum affix reforge count per item (0 = unlimited)
+  # When reached, the item cannot be affix-reforged anymore
+  max-affix-reforge-count: 10
+
+  # Use internal affix system for reforge
+  # When true, plugin uses modifiers/*.yml config instead of MMOItems native generation
+  use-internal-affix-system: true
+
+  # List of NBT tags to preserve during reforge
+  # Used for compatibility with other plugins that store data in NBT (e.g. MMOitemsEnhance)
+  # MMOITEMS_UPGRADE is for upgrade level
+  # Note: Do NOT add MMOITEMS_TIER here, as tier should change on quality reforge
+  preserve-nbt-tags:
+    - "MMOITEMS_UPGRADE"
+    - "MMOITEMS_UPGRADE_LEVEL"
+    - "MMOITEMS_UPGRADE_DATA"
+    - "MMOitemsUpgrade"
+    - "MMOITEMS_PGEM_SLOTS"
+    - "MMOITEMS_GEM_STONES"
+    - "MMOITEMS_GEM_SOCKETS"
+  lucky-system:
+    enabled: true  # Enable lucky system
+    # Random lucky points gained per reforge
+    gain-per-reforge:
+      min: 1
+      max: 5
+    # Minimum lucky points required to use lucky bonus
+    min-lucky-required: 20
+    # Quality bonus by lucky points range (percentage adjustment)
+    # All accumulated lucky points are consumed when used, bonus applied based on amount
+    quality-bonus-by-lucky:
+      # 20-39 lucky points bonus
+      20:
+        COMMON: -5
+        UNCOMMON: -3
+        RARE: 2
+        EPIC: 3
+        LEGENDARY: 4
+        MYTHIC: 2
+      # 40-59 lucky points bonus
+      40:
+        COMMON: -10
+        UNCOMMON: -6
+        RARE: 4
+        EPIC: 6
+        LEGENDARY: 8
+        MYTHIC: 4
+      # 60-79 lucky points bonus
+      60:
+        COMMON: -15
+        UNCOMMON: -10
+        RARE: 6
+        EPIC: 10
+        LEGENDARY: 12
+        MYTHIC: 6
+      # 80-99 lucky points bonus
+      80:
+        COMMON: -20
+        UNCOMMON: -15
+        RARE: 8
+        EPIC: 15
+        LEGENDARY: 18
+        MYTHIC: 10
+      # 100 lucky points bonus (maximum)
+      100:
+        COMMON: -25
+        UNCOMMON: -20
+        RARE: 10
+        EPIC: 20
+        LEGENDARY: 25
+        MYTHIC: 15
+    # Lucky title system (different titles displayed in GUI when reaching specific lucky points)
+    luck_title_list:
+      20: '&7[Novice Smith]'
+      40: '&a[Skilled Smith]'
+      60: '&b[Master Smith]'
+      80: '&d[Legendary Smith]'
+      100: '&6[Fate''s Chosen]'
+  
+  # Reforge material configuration has been moved to reforge-materials.yml
+  # In reforge-materials.yml you can configure 1-4 materials for different equipment types or IDs
+  # Supports using MMOItems material items as reforge materials
+  
+  # Allowed MMOItems item types for reforging (leave empty to allow all types)
+  allowed-item-types:
+    - SWORD
+    - DAGGER
+    - AXE
+    - MACE
+    - STAFF
+    - WAND
+    - SPEAR
+    - BOW
+    - CROSSBOW
+    - MUSKET
+    - HAMMER
+    - WHIP
+    - LUTE
+    - CATALYST
+    - GAUNTLET
+    - GREATAXE
+    - GREATSWORD
+    - KATANA
+    - SCYTHE
+    - SHIELD
+    - ARMOR
+    - TOOL
+    - CONSUMABLE
+
+# Reforge Options (MMOItems Native API)
+# These settings determine what data is preserved during reforge
+reforge-options:
+  keep-name: true
+  keep-lore: true
+  keep-enchants: true
+  keep-gems: true
+  keep-upgrades: true
+  keep-soulbound: true
+  keep-external-sh: true  # Keep external stat history
+  keep-skins: true
+
+# GUI Settings
+reforge.gui:
+  title: "&8Reforge Station"
+  rows: 3
+  
+  # Slot configuration
+  # Slots can be a single number or a list of numbers
+  slots:
+    item: 13       # Item to reforge
+    materials:     # Material slots (must be a list)
+      - 10
+      - 11
+      - 15
+      - 16
+    confirm: 22    # Confirm button
+    info: 4        # Info/Help icon
+    lucky: 26      # Lucky bonus button
+    mode-toggle: 0 # Mode toggle button (Quality/Affix)
+    
+    # Filler item settings (background)
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      display-name: " "
+      custom-model-data: 0
+  
+  # Item slot display settings (when empty)
+  item-display:
+    material: RED_STAINED_GLASS_PANE
+    display-name: "&cPlace Item Here"
+    lore:
+      - "&7Place the item you want to"
+      - "&7reforge in this slot."
+      
+  # Material slot display settings (when empty)
+  material-display:
+    material: YELLOW_STAINED_GLASS_PANE
+    display-name: "&eRequired Material"
+    lore:
+      - "&7Place required reforge"
+      - "&7materials here."
+      
+  # Info icon settings
+  info-display:
+    material: BOOK
+    display-name: "&6Reforge Information"
+    # Custom lore (leave empty or comment out to use dynamic lore)
+    # Available placeholders: {affix_count}, {affix_max_count}
+    lore:
+      - "&7Current Item Info"
+      - "&7Affix Reforge: &e{affix_count}&7/&e{affix_max_count}"
+      - ""
+      - "&7Place an item to see details"
+    
+  # Confirm button settings
+  confirm-button:
+    enabled:
+      material: LIME_CONCRETE
+      display-name: "&a&lCONFIRM REFORGE"
+      lore:
+        - "&7Click to reforge this item."
+        - "&7Cost: &6{cost} Gold"
+    disabled:
+      material: RED_CONCRETE
+      display-name: "&c&lCANNOT REFORGE"
+      lore: []
+  # Lucky button settings
+  lucky-button:
+    enabled:
+      material: EXPERIENCE_BOTTLE
+      display-name: "&b&lLucky Bonus: &aON"
+      lore:
+        - "&7Consumes lucky points to"
+        - "&7increase reforge quality."
+        - "&7Current Lucky: &e{lucky}"
+        - "&7Cost: &e{cost}"
+    disabled:
+      material: GLASS_BOTTLE
+      display-name: "&b&lLucky Bonus: &cOFF"
+      lore:
+        - "&7Click to enable lucky bonus."
+        - "&7Current Lucky: &e{lucky}"
+    insufficient:
+      material: BARRIER
+      display-name: "&c&lLucky Bonus: &4Unavailable"
+      lore:
+        - "&7Not enough lucky points."
+        - "&7Current Lucky: &e{lucky}"
+        - "&7Required: &e{cost}"
+
+  # Mode toggle button settings
+  mode-toggle-button:
+    quality-mode:
+      material: DIAMOND
+      display-name: "&b&lMode: &fQuality Reforge"
+      lore:
+        - "&7Rerolls item tier and stats."
+        - "&7Click to switch to Affix Mode."
+    affix-mode:
+      material: EMERALD
+      display-name: "&a&lMode: &fAffix Reforge"
+      lore:
+        - "&7Rerolls item modifiers/affixes."
+        - "&7Click to switch to Quality Mode."
+
+  # Custom buttons (optional extra buttons)
+  custom-buttons:
+    close:
+      slot: 8
+      enabled: true
+      material: BARRIER
+      display-name: "&cClose"
+      action: "close"  # Actions: close, nothing, command:xxx, console:xxx

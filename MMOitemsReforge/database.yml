@@ -1,0 +1,34 @@
+# MMOitemsReforge Database Configuration
+
+# Data storage method: FILE, SQLITE, H2, MYSQL
+# FILE   - Use YAML file storage (default, no additional dependencies)
+# SQLITE - Use SQLite embedded database
+# H2     - Use H2 embedded database
+# MYSQL  - Use MySQL remote database
+data-storage-method: FILE
+
+# SQLite Configuration
+SQLite:
+  file: 'mmoreforge'
+  table-prefix: mmoreforge_
+
+# H2 Database Configuration
+H2:
+  file: 'mmoreforge'
+  table-prefix: mmoreforge_
+
+# MySQL Database Configuration
+MySQL:
+  host: 'localhost'
+  port: '3306'
+  user: 'root'
+  password: 'password'
+  database: 'minecraft'
+  connection-parameters: '?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8'
+  Pool-Settings:
+    max-pool-size: 10
+    min-idle: 10
+    max-lifetime: 180000
+    keep-alive-time: 60000
+    time-out: 20000
+  table-prefix: mmoreforge_

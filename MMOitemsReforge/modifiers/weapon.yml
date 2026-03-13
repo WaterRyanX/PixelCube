@@ -1,0 +1,16 @@
+SWORD:
+  max-affixes: 3
+  modifiers:
+    Sharp_I: 0.4
+    Agile_I: 0.4
+    Critical_I: 0.4
+    Critical_Power_I: 0.4
+    PvE_Damage_I: 0.4
+    Flame_I: 0.4
+    Nature_I: 0.4
+    Wave_I: 0.4
+    Holy_I: 0.4
+    Darkness_I: 0.4
+    Lifesteal_I: 0.4
+    Skill_Damage_I: 0.4
+    Speedy: 0.4

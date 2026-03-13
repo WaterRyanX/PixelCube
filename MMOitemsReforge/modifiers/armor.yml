@@ -1,0 +1,8 @@
+ARMOR:
+  max-affixes: 3
+  modifiers:
+    Hard_I: 0.4
+    Critical_I: 0.4
+    Critical_Power_I: 0.4
+    PvE_Damage_I: 0.4
+    Speedy: 0.4
