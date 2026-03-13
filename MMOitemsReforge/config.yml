@@ -1,0 +1,285 @@
+# MMOitemsReforge 配置文件
+# 配置文件版本，请勿手动修改
+config-version: 2
+
+# 语言设置 (zh_CN=简体中文, zh_TW=繁体中文, en_US=英文)
+language: zh_CN
+
+# 调试模式（用于排查问题）
+# 启用后会在控制台输出详细的调试信息
+debug: false
+
+# 启用 BStats 统计（匿名使用统计）
+# 设为 false 可禁用数据收集
+metrics: true
+
+# 更新检查器设置
+# 检查新插件版本并通知管理员
+update-checker: true
+
+# 装备重铸设置
+reforge:
+  # 允许重铸所有物品（启用后忽略物品类型限制和 allowed-item-types 配置）
+  allow-all-items: false
+
+  # 重铸费用（Vault 货币）
+  cost: 50.0 # 品质重铸费用
+  affix-cost: 100.0 # 词缀重铸费用
+
+  # 每个物品最大词缀重铸次数（0 = 无限制）
+  # 达到限制后该物品无法再进行词缀重铸
+  max-affix-reforge-count: 10
+
+  # 重铸时保留的 NBT 标签列表
+  # 用于兼容其他插件存储的 NBT 数据（如 MMOitemsEnhance）
+  # MMOITEMS_UPGRADE 是升级等级
+  # 注意：请勿在此添加 MMOITEMS_TIER，因为品质重铸时品级应该改变
+  preserve-nbt-tags:
+    - "MMOITEMS_UPGRADE"
+    - "MMOITEMS_UPGRADE_LEVEL"
+    - "MMOITEMS_UPGRADE_DATA"
+    - "MMOitemsUpgrade"
+    - "MMOITEMS_PGEM_SLOTS"
+    - "MMOITEMS_GEM_STONES"
+    - "MMOITEMS_GEM_SOCKETS"
+
+  lucky-system:
+    enabled: true # 启用幸运系统
+    # 每次重铸获得的随机幸运点数
+    gain-per-reforge:
+      min: 1
+      max: 5
+    # 使用幸运加成所需的最低幸运点数
+    min-lucky-required: 20
+    # 根据幸运点数范围的品质加成（百分比调整）
+    # 使用时消耗所有累积的幸运点数，根据数量应用加成
+    quality-bonus-by-lucky:
+      # 20-39 幸运点数加成
+      20:
+        COMMON: -5
+        UNCOMMON: -3
+        RARE: 2
+        EPIC: 3
+        LEGENDARY: 4
+        MYTHIC: 2
+      # 40-59 幸运点数加成
+      40:
+        COMMON: -10
+        UNCOMMON: -6
+        RARE: 4
+        EPIC: 6
+        LEGENDARY: 8
+        MYTHIC: 4
+      # 60-79 幸运点数加成
+      60:
+        COMMON: -15
+        UNCOMMON: -10
+        RARE: 6
+        EPIC: 10
+        LEGENDARY: 12
+        MYTHIC: 6
+      # 80-99 幸运点数加成
+      80:
+        COMMON: -20
+        UNCOMMON: -15
+        RARE: 8
+        EPIC: 15
+        LEGENDARY: 18
+        MYTHIC: 10
+      # 100 幸运点数加成（最高）
+      100:
+        COMMON: -25
+        UNCOMMON: -20
+        RARE: 10
+        EPIC: 20
+        LEGENDARY: 25
+        MYTHIC: 15
+    # 幸运称号系统（达到特定幸运点数时在 GUI 中显示不同称号）
+    luck_title_list:
+      20: "액"
+      40: "액액"
+      60: "액액액"
+      80: "액액액액"
+      100: "액액액액액"
+
+  # 重铸材料配置已移至 reforge-materials.yml
+  # 在 reforge-materials.yml 中可以为不同装备类型或 ID 配置 1-4 种材料
+  # 支持使用 MMOItems 材料物品作为重铸材料
+
+  # 允许重铸的 MMOItems 物品类型（留空则允许所有类型）
+  allowed-item-types:
+    - SWORD
+    - DAGGER
+    - AXE
+    - MACE
+    - STAFF
+    - WAND
+    - SPEAR
+    - BOW
+    - CROSSBOW
+    - MUSKET
+    - HAMMER
+    - WHIP
+    - LUTE
+    - CATALYST
+    - GAUNTLET
+    - GREATAXE
+    - GREATSWORD
+    - KATANA
+    - SCYTHE
+    - SHIELD
+    - ARMOR
+    - TOOL
+    - CONSUMABLE
+
+# 重铸选项（MMOItems 原生 API）
+# 这些设置决定重铸时保留哪些数据
+reforge-options:
+  keep-name: true
+  keep-lore: true
+  keep-enchants: true
+  keep-gems: true
+  keep-upgrades: true
+  keep-soulbound: true
+  keep-external-sh: true # 保留外部属性历史
+  keep-skins: true
+
+# GUI 设置
+reforge.gui:
+  title: "<shift:-6>§f애"
+  rows: 4
+
+  # 槽位配置
+  # 槽位可以是单个数字或数字列表
+  slots:
+    item: 20 # 待重铸物品
+    materials: # 材料槽位（必须是列表）
+      - 23
+      - 24
+      - 25
+      - 26
+    confirm: # 确认按钮
+      - 32
+      - 33
+    info: 8 # 信息/帮助图标
+    lucky: 35 # 幸运加成按钮
+    mode-toggle: 7 # 模式切换按钮（品质/词缀）
+
+    # 填充物品设置（背景）
+    filler:
+      material: AIR
+      display-name: " "
+      custom-model-data: 0
+
+  # 物品槽位显示设置（空置时）
+  item-display:
+    material: PAPER
+    custom-model-data: 810001
+    display-name: "&c放置物品"
+    lore:
+      - "&7在此槽位放置"
+      - "&7你想要重铸的物品"
+
+  # 材料槽位显示设置（空置时）
+  material-display:
+    material: PAPER
+    custom-model-data: 810001
+    display-name: "&e需要材料"
+    lore:
+      - "&7在此放置所需的"
+      - "&7重铸材料"
+
+  # 信息图标设置
+  info-display:
+    material: PAPER
+    custom-model-data: 810004
+    display-name: "&6重铸信息"
+    # 自定义说明（留空或注释掉使用动态说明）
+    # 可用占位符: {affix_count}, {affix_max_count}
+    lore:
+      - "&7当前物品信息"
+      - "&7词缀重铸次数: &e{affix_count}&7/&e{affix_max_count}"
+      - ""
+      - "&7放入物品查看详情"
+
+  # 确认按钮设置
+  confirm-button:
+    enabled:
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&a&l确认重铸"
+      lore:
+        - "&7点击重铸此物品"
+        - "&7费用: &6{cost} 金币"
+    disabled:
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&c&l无法重铸"
+      lore: []
+  # 幸运按钮设置
+  lucky-button:
+    enabled:
+      material: PAPER
+      custom-model-data: 810003
+      display-name: "&b&l幸运加成: &a开启"
+      lore:
+        - "&7消耗幸运点数以"
+        - "&7提高重铸品质"
+        - "&7当前幸运: &e{lucky}"
+        - "&7消耗: &e{cost}"
+    disabled:
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&b&l幸运加成: &c关闭"
+      lore:
+        - "&7点击启用幸运加成"
+        - "&7当前幸运: &e{lucky}"
+    insufficient:
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&c&l幸运加成: &4不可用"
+      lore:
+        - "&7幸运点数不足"
+        - "&7当前幸运: &e{lucky}"
+        - "&7需要: &e{cost}"
+
+  # 模式切换按钮设置
+  mode-toggle-button:
+    quality-mode:
+      material: PAPER
+      #custom-model-data: 810004
+      display-name: "&b&l模式: &f品质重铸"
+      lore:
+        - "&7重新随机物品品级和属性"
+        - "&7点击切换到词缀模式"
+    affix-mode:
+      material: PAPER
+      #custom-model-data: 810001
+      display-name: "&a&l模式: &f词缀重铸"
+      lore:
+        - "&7重新随机物品词缀/修饰符"
+        - "&7点击切换到品质模式"
+
+  # 自定义按钮（可选额外按钮）
+  custom-buttons:
+    close:
+      slot: 0
+      enabled: true
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&c关闭"
+      action: "close" # 动作: close, nothing, command:xxx, console:xxx
+    u:
+      slot: 1
+      enabled: true
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&c升级"
+      action: "command:mmoupgrade gui" # 动作: close, nothing, command:xxx, console:xxx
+    u2:
+      slot: 2
+      enabled: true
+      material: PAPER
+      custom-model-data: 810004
+      display-name: "&c升级"
+      action: "command:mmoupgrade gui" # 动作: close, nothing, command:xxx, console:xxx

@@ -1,0 +1,41 @@
+# 自定义装备重铸材料配置
+# Custom Equipment Reforge Materials Configuration
+# 用于特殊的自定义装备，可以按物品ID精确匹配
+
+# 圣剑 Excalibur 的专属重铸材料
+# item-id 格式: MMOItems类型:物品ID (如 SWORD:EXCALIBUR)
+SWORD:EXCALIBUR:
+  item-id: "SWORD:EXCALIBUR"
+  materials:
+    - type: VANILLA
+      id: DIAMOND
+      amount: 5
+      display-name: "&b钻石"
+    - type: VANILLA
+      id: GOLD_INGOT
+      amount: 10
+      display-name: "&6金锭"
+    - type: MMOITEMS:MATERIAL
+      id: MAGIC_DUST
+      amount: 10
+      display-name: "&d魔法粉尘"
+
+# 材料类型说明:
+# - type: VANILLA              (原版物品)
+# - type: MMOITEMS:MATERIAL    (MMOItems MATERIAL 类型)
+# - type: MMOITEMS:CONSUMABLE  (MMOItems CONSUMABLE 类型)
+# - type: MMOITEMS:GEM         (MMOItems GEM 类型)
+
+# 你可以添加更多特定物品的配置
+# 示例:
+# BOW:LEGENDARY_BOW:
+#   item-id: "BOW:LEGENDARY_BOW"
+#   materials:
+#     - type: VANILLA
+#       id: STRING
+#       amount: 10
+#       display-name: "&f线"
+#     - type: MMOITEMS:MATERIAL
+#       id: BOW_SHARD
+#       amount: 5
+#       display-name: "&a弓之碎片"

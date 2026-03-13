@@ -1,0 +1,130 @@
+# MMOItems Reforge 品级系统（品质系统配置）
+# 重铸时根据权重随机选择品级，并应用相应的属性加成
+# 品级 ID 必须与 MMOItems 中配置的品级 ID 匹配（小写）
+# 例如，如果 MMOItems 品级文件定义了 COMMON, UNCOMMON, RARE 等
+# 则这里应使用 common, uncommon, rare 作为品级 ID
+
+# 品级配置
+tiers:
+  # 普通品级 - 对应 MMOItems COMMON 品级
+  common:
+    display-name: "&7普通"  # 品级显示名称（用于调试日志）
+    weight: 50              # 权重（越高越常见）
+    name-prefix: "&7"      # 物品名称前缀（颜色代码）
+    name-suffix: ""        # 物品名称后缀
+    tooltip-style: "minecraft:common"  # 工具提示样式（1.20.5+ 特性）
+    # 掉落特效配置（可选，类似 MythicMobs 掉落特效）
+    drop-effect:
+      glow: false           # 掉落时物品发光
+      show-name: false      # 在掉落物品上方显示名称
+      vfx:
+        enabled: false      # 启用视觉特效
+        material: "POTION" # VFX 材质（任意 Material 类型）
+        model-data: 0       # VFX 自定义模型数据
+        color: "#FFFFFF"   # VFX 颜色（十六进制格式）
+    stat-modifiers:         # 属性加成（固定值加成）
+      # 格式：固定值加成 - 在基础属性上添加固定值
+      # 示例：ATTACK_DAMAGE: 0 表示无加成
+      # 使用 "+5" 或 "5" 格式，效果相同
+      ATTACK_DAMAGE: 0
+      ATTACK_SPEED: 0
+      
+  # 非凡品级 - 对应 MMOItems UNCOMMON 品级
+  uncommon:
+    display-name: "&a非凡"
+    weight: 30
+    name-prefix: "&a"      # 绿色
+    name-suffix: ""
+    tooltip-style: "minecraft:uncommon"  # 工具提示样式（1.20.5+ 特性）
+    drop-effect:
+      glow: true            # 掉落时物品发光
+      glow-color: "GREEN"   # 发光颜色（可选）: BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE, GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE
+      show-name: true       # 在掉落物品上方显示名称
+      vfx:
+        enabled: false
+        material: "POTION"
+        model-data: 0
+        color: "#a8ff8f"
+    stat-modifiers:
+      # 固定值加成 - 在基础属性上添加固定值
+      # 示例：ATTACK_DAMAGE: 2 表示 +2 攻击伤害
+      ATTACK_DAMAGE: 2
+      ATTACK_SPEED: 1
+      
+  # 稀有品级 - 对应 MMOItems RARE 品级
+  rare:
+    display-name: "&b稀有"
+    weight: 15
+    name-prefix: "&b"      # 青色
+    name-suffix: ""
+    tooltip-style: "minecraft:rare"  # 工具提示样式（1.20.5+ 特性）
+    drop-effect:
+      glow: true
+      glow-color: "AQUA"    # 青色发光
+      show-name: true
+      vfx:
+        enabled: true       # 为稀有物品启用 VFX
+        material: "POTION"
+        model-data: 1
+        color: "#55FFFF"
+    stat-modifiers:
+      # 固定值加成
+      ATTACK_DAMAGE: 4
+      ATTACK_SPEED: 2
+      CRITICAL_STRIKE_CHANCE: 5  # 如果物品没有此属性则添加
+      
+  # 史诗品级 - 对应 MMOItems EPIC 品级
+  epic:
+    display-name: "&5史诗"
+    weight: 4
+    name-prefix: "&5"      # 紫色
+    name-suffix: ""
+    tooltip-style: "minecraft:epic"  # 工具提示样式（1.20.5+ 特性）
+    drop-effect:
+      glow: true
+      glow-color: "LIGHT_PURPLE"  # 史诗紫色发光
+      show-name: true
+      vfx:
+        enabled: true
+        material: "POTION"
+        model-data: 2
+        color: "#AA00FF"
+    stat-modifiers:
+      # 固定值加成
+      ATTACK_DAMAGE: 7
+      ATTACK_SPEED: 3
+      CRITICAL_STRIKE_CHANCE: 10
+      CRITICAL_STRIKE_POWER: 15
+      
+  # 传说品级 - 对应 MMOItems LEGENDARY 品级
+  legendary:
+    display-name: "&6传说"
+    weight: 1
+    name-prefix: "&6"      # 金色
+    name-suffix: ""
+    tooltip-style: "minecraft:legendary"  # 工具提示样式（1.20.5+ 特性）
+    drop-effect:
+      glow: true
+      show-name: true
+      vfx:
+        enabled: true
+        material: "POTION"
+        model-data: 3
+        color: "#FFD700"
+    stat-modifiers:
+      # 固定值加成
+      ATTACK_DAMAGE: 10
+      ATTACK_SPEED: 5
+      CRITICAL_STRIKE_CHANCE: 15
+      CRITICAL_STRIKE_POWER: 25
+      MAX_HEALTH: 10
+
+# 重铸时保留品级
+preserve-tier-on-reforge: false    # 重铸时是否保留当前品级（false = 重新随机品级）
+
+# 说明：
+# 1. 品级 ID 必须与 MMOItems 配置中的品级 ID 匹配（小写）
+# 2. 重铸后 MMOITEMS_TIER NBT 会自动设置，LiveMMOItem 会显示相应的品级说明
+# 3. display-name 仅用于调试日志显示，不会显示在物品上
+# 4. name-prefix 和 name-suffix 用于重铸后修改物品名称，格式：前缀 + 原名 + 后缀
+# 5. 示例：普通品级 name-prefix="&7"，原名"剑"，最终显示为 "&7剑"

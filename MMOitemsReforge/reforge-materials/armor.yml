@@ -1,0 +1,53 @@
+# 防具类重铸材料配置
+# Armor Reforge Materials Configuration
+# 根据原版物品类型 (HELMET/CHESTPLATE/LEGGINGS/BOOTS) 匹配
+
+# 头盔 (HELMET)
+# 匹配所有 _HELMET 结尾的原版物品 (如 IRON_HELMET, DIAMOND_HELMET 等)
+HELMET:
+  materials:
+    - type: VANILLA
+      id: LEATHER
+      amount: 3
+      display-name: "&6皮革"
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 2
+      display-name: "&f铁锭"
+
+# 胸甲 (CHESTPLATE)
+# 匹配所有 _CHESTPLATE 结尾的原版物品和 ELYTRA
+CHESTPLATE:
+  materials:
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 6
+      display-name: "&f铁锭"
+    - type: VANILLA
+      id: LEATHER
+      amount: 2
+      display-name: "&6皮革"
+
+# 护腿 (LEGGINGS)
+LEGGINGS:
+  materials:
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 5
+      display-name: "&f铁锭"
+    - type: VANILLA
+      id: LEATHER
+      amount: 2
+      display-name: "&6皮革"
+
+# 靴子 (BOOTS)
+BOOTS:
+  materials:
+    - type: VANILLA
+      id: LEATHER
+      amount: 3
+      display-name: "&6皮革"
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 2
+      display-name: "&f铁锭"

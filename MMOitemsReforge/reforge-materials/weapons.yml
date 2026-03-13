@@ -1,0 +1,68 @@
+# 武器类重铸材料配置
+# Weapons Reforge Materials Configuration
+# 每个顶级键是 MMOItems 装备类型
+
+# 材料类型说明:
+# - type: VANILLA  (原版物品，id 为 Minecraft 物品ID如 IRON_INGOT)
+# - type: MMOITEM  (MMOItems 物品，需要额外指定 mmoitem-type)
+# - type: MATERIAL (MMOItems MATERIAL 类型的简写)
+
+# 剑类武器 (SWORD)
+SWORD:
+  materials:
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 5
+      display-name: "&f铁锭"
+    - type: VANILLA
+      id: DIAMOND
+      amount: 1
+      display-name: "&b钻石"
+
+# 斧类武器 (AXE)
+AXE:
+  materials:
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 5
+      display-name: "&f铁锭"
+    - type: VANILLA
+      id: STICK
+      amount: 2
+      display-name: "&6木棍"
+
+# 弓类武器 (BOW)
+BOW:
+  materials:
+    - type: VANILLA
+      id: STRING
+      amount: 5
+      display-name: "&f线"
+    - type: VANILLA
+      id: STICK
+      amount: 3
+      display-name: "&6木棍"
+
+# 法杖类武器 (STAFF)
+STAFF:
+  materials:
+    - type: VANILLA
+      id: BLAZE_ROD
+      amount: 2
+      display-name: "&6烈焰棒"
+    - type: VANILLA
+      id: GOLD_INGOT
+      amount: 3
+      display-name: "&6金锭"
+
+# 长枪类武器 (SPEAR)  
+SPEAR:
+  materials:
+    - type: VANILLA
+      id: IRON_INGOT
+      amount: 4
+      display-name: "&f铁锭"
+    - type: VANILLA
+      id: STICK
+      amount: 2
+      display-name: "&6木棍"
