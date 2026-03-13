@@ -1,0 +1,71 @@
+# MMOitemsUpgrade English Language File
+
+# Upgrade Messages
+messages:
+  success: "&aUpgrade successful! Current level: &e{level}"
+  failure: "&cUpgrade failed!"
+  level-drop: "&cUpgrade failed! Level dropped to: &e{level}"
+  item-destroyed: "&4Upgrade failed! Item destroyed!"
+  max-level: "&cMaximum upgrade level reached!"
+  not-mmoitem: "&cPlease hold an MMOItems item!"
+  no-permission: "&cYou don't have permission to use this command!"
+  cooldown-active: "&cUpgrade is on cooldown! Please wait &e{time} &cseconds."
+  force-success: "&aUpgrade successful (forced)!"
+  force-failure: "&cUpgrade failed (possibly reached limit)!"
+  unidentified-material: "&cUnidentified material!"
+  insufficient-conditions: "&cInsufficient upgrade conditions!"
+  minigame-failed: "&cUpgrade failed: Minigame not cleared!"
+  insufficient-money: "&cInsufficient money: {amount}"
+  insufficient-exp: "&cInsufficient experience: {amount}"
+  insufficient-material: "&cInsufficient material: {material} x{amount}"
+  preview-hover: "&7Click to view player's weapon"
+  preview-expired: "&cPreview expired"
+  scroll-success: "&aUpgrade successful! {item} enhanced to &e+{level}"
+  scroll-target-reached: "&cThis item level already reached or exceeded target level!"
+  scroll-downgrade-denied: "&cThis scroll does not allow downgrading!"
+  scroll-not-mmoitem: "&cThis item is not a valid MMOItems equipment!"
+  give-success: "&aGave {amount}x {id} to {player}"
+  not-valid-scroll: "&cThis item is not a valid scroll!"
+  scroll-upgrade-failed: "&cScroll upgrade failed!"
+  player-not-found: "&cPlayer not found: {name}"
+  invalid-level: "&cInvalid level: {level}"
+  auraskills-exp-reward: "&aGained {skill} experience: &e{amount}"
+  
+# Command Messages
+commands:
+  usage: "&eUsage: /mmoupgrade <gui|forceenhance|forcedowngrade|give|reload>"
+  reload-success: "&aConfiguration reloaded!"
+  reload-error: "&cError reloading configuration: {error}"
+  player-only: "&cOnly players can use this command!"
+  help-gui: "Open enhancement GUI"
+  help-force: "Force enhance held item (optional level)"
+  help-downgrade: "Force downgrade held item (optional level)"
+  help-give: "Give enhancement or success rate scrolls"
+  help-reload: "Reload configuration files"
+  help-stats: "View upgrade statistics"
+
+# Stats Display
+stats:
+  header: "&e=== {player} &eUpgrade Statistics ==="
+  total-upgrades: "&7Total Upgrades: &f{value}"
+  success-count: "&aSuccess Count: &f{value}"
+  failure-count: "&cFailure Count: &f{value}"
+  level-drop-count: "&6Level Drops: &f{value}"
+  destroyed-count: "&4Items Destroyed: &f{value}"
+  success-rate: "&bSuccess Rate: &f{value}"
+  level-reached-header: "&e--- Level Achievements ---"
+  level-reached-item: "  &7+{level}: &f{count} times"
+
+# PlaceholderAPI Variable Descriptions
+placeholders:
+  total: "Total upgrade attempts"
+  success: "Success count"
+  failure: "Failure count"
+  leveldrop: "Level drop count"
+  destroyed: "Items destroyed count"
+  rate: "Success rate"
+  max_level: "Highest level achieved"
+  auraskills_skill_bonus: "AuraSkills skill bonus"
+  auraskills_luck_bonus: "AuraSkills luck bonus"
+  auraskills_total_bonus: "AuraSkills total bonus"
+  auraskills_wisdom_reduction: "AuraSkills wisdom cost reduction"
