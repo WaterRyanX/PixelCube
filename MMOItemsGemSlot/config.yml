@@ -1,0 +1,140 @@
+# MMOItemsGemSlot 配置文件
+# 配置版本号，请勿修改！插件更新时会自动添加缺失的配置项
+config-version: 2
+
+# 语言设置
+# 可用语言: zh_CN (简体中文), zh_TW (繁体中文), en_US (英语), ru_RU (俄语), de_DE (德语)
+language: zh_CN
+
+global:
+  # 物品操作（打孔、镶嵌、拆卸）时需要保留的 NBT 标签
+  # 重要：只包含 MMOItems API 不会自动处理的标签
+  # 不要在此处包含 MMOITEMS_ABILITY 或 MMOITEMS_PERM_EFFECTS - LiveMMOItem 会处理这些
+  preserve-nbt-tags: 
+    - "MMOITEMS_UPGRADE"
+    - "MMOITEMS_UPGRADE_LEVEL"
+    - "MMOITEMS_UPGRADE_DATA"
+    - "MMOitemsUpgrade"
+    - "MMOITEMS_PGEM_SLOTS"
+    - "HSTRY_PERM_EFFECTS"
+    - "HSTRY_ABILITY"
+    - "MMOITEMS_ABILITY"
+    - "MMOITEMS_PERM_EFFECTS"
+
+# 宝石镶嵌设置
+gem-socket:
+  # 禁用 MMOItems 原生的拖放镶嵌功能
+  # 设置为 true 时强制玩家使用本插件的 GUI 进行宝石镶嵌
+  disable-native-socketing: true
+  
+  # 经济货币花费（需要 Vault）
+  # 设置为 0 禁用金钱消耗
+  cost: 500
+  
+  # 经验消耗
+  # 设置为 0 禁用经验消耗
+  exp-cost: 100
+
+# 宝石孔打孔设置
+perforation:
+  # 物品可添加的最大宝石孔数量
+  max-slots: 5
+  
+  # 经济货币花费（需要 Vault）
+  cost: 1000
+  
+  # 每个孔位的成功率（百分比）
+  # 格式：[第1孔, 第2孔, 第3孔, 第4孔, 第5孔]
+  # 每增加一个孔位，成功率递减
+  # 如果孔位数超过列表长度，将使用最后一个值
+  success-rates:
+    - 80  # 第1孔: 80%
+    - 60  # 第2孔: 60%
+    - 40  # 第3孔: 40%
+    - 20  # 第4孔: 20%
+    - 10  # 第5孔: 10%
+  
+  # 允许打孔的 MMOItems 武器类型
+  allowed-weapon-types:
+    - SWORD
+    - DAGGER
+    - AXE
+    - MACE
+    - STAFF
+    - WAND
+    - SPEAR
+    - BOW
+    - CROSSBOW
+    - MUSKET
+    - HAMMER
+    - GAUNTLET
+    - WHIP
+    - SCYTHE
+    - GLAIVE
+    - HALBERD
+    - GREATSWORD
+    - GREATAXE
+  
+  # NBT 宝石孔类型配置（支持多种类型）
+  # 重要：'name' 必须与宝石的 MMOITEMS_GEM_COLOR 值匹配
+  # 例如，如果你的宝石 MMOITEMS_GEM_COLOR 是 "Red"，则使用 name: "Red"
+  gem-slot-types:
+    - name: "Red"           # 必须与 MMOITEMS_GEM_COLOR 匹配
+      display-name: "&c红色宝石孔"
+      material: PAPER  # 切换按钮的材质
+      custom-model-data: 800001
+    - name: "Sapphire"      # 必须与 MMOITEMS_GEM_COLOR 匹配
+      display-name: "&9蓝宝石孔"
+      material: PAPER
+      custom-model-data: 800001
+    - name: "Emerald"       # 必须与 MMOITEMS_GEM_COLOR 匹配
+      display-name: "&a翡翠宝石孔"
+      material: PAPER
+      custom-model-data: 800001
+  
+  # 打孔器配置
+  perforator:
+    # 打孔器物品材质
+    material: DIAMOND_PICKAXE
+    # 打孔器名称（必须完全匹配）
+    # 支持传统颜色代码（&a, &b, &c 等）和 RGB 颜色代码（&#FF0000, &#00FF00 等）
+    name: "&b宝石打孔器"
+    # 自定义模型数据，设置为 0 或负数禁用
+    custom-model-data: 1001
+    # 是否检查描述
+    check-lore: false
+    # 打孔器描述要求（仅在 check-lore 为 true 时生效）
+    lore:
+      - "&7用于给物品打孔"
+    # 是否消耗打孔器
+    consume: true
+  
+  # 宝石拆卸器配置
+  gem-remover:
+    # 经济货币花费（需要 Vault）
+    # 设置为 0 禁用金钱消耗
+    cost: 300
+
+    # 经验消耗（经验点数，非等级）
+    # 设置为 0 禁用经验消耗
+    exp-cost: 50
+
+    # 启用宝石拆卸器要求
+    enabled: true
+    # 宝石拆卸器物品材质
+    material: DIAMOND_PICKAXE
+    # 宝石拆卸器名称（必须完全匹配）
+    # 支持传统颜色代码（&a, &b, &c 等）和 RGB 颜色代码（&#FF0000, &#00FF00 等）
+    name: "&c宝石拆卸器"
+    # 自定义模型数据，设置为 0 或负数禁用
+    custom-model-data: 1002
+    # 是否检查描述
+    check-lore: false
+    # 宝石拆卸器描述要求（仅在 check-lore 为 true 时生效）
+    lore:
+      - "&7用于从物品中拆卸宝石"
+    # 是否消耗宝石拆卸器
+    consume: true
+
+# 消息已移至 translations/ 目录
+# 在上方选择语言以更改消息语言

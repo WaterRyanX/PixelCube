@@ -1,0 +1,111 @@
+# 宝石孔打孔 GUI 配置
+# 宝石孔打孔界面配置
+
+# GUI 设置
+title: "<shift:-6>§f퍤"
+rows: 3
+
+slots:
+  weapon: 11     # 武器放置槽位
+  perforator: 13 # 打孔器放置槽位
+  confirm: 15    # 确认按钮槽位
+  info: 8       # 信息显示槽位
+  gem-type-switch: 17  # 宝石孔类型切换按钮槽位
+  filler:        # 填充物品
+    enabled: false  # 设置为 false 禁用填充（使用空气代替）
+    material: PAPER
+    display-name: " "
+    # 自定义模型数据，设置为 0 或负数禁用
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+
+item-display:
+  material: PAPER
+  display-name: "&e放置物品"
+  # 自定义模型数据，设置为 0 或负数禁用
+  custom-model-data: 810001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  lore:
+    - "&7在此处放置武器或工具"
+    - "&7以添加宝石孔"
+
+perforator-display:
+  material: PAPER
+  display-name: "&e放置打孔器"
+  # 自定义模型数据，设置为 0 或负数禁用
+  custom-model-data: 800001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  lore:
+    - "&7在此处放置宝石打孔器"
+
+info-display:
+  material: PAPER
+  display-name: "&a宝石孔打孔"
+  # 自定义模型数据，设置为 0 或负数禁用
+  custom-model-data: 800001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  # 自定义描述，支持以下占位符：
+  # {max-slots} - 最大孔位数
+  # {cost} - 货币花费
+  # {success-rate} - 成功率
+  # {current-slots} - 当前孔位数（放置物品后显示）
+  lore:
+    - "&7最大孔位: &6{max-slots}"
+    - "&7花费: &6{cost} 金币"
+    - "&7成功率: &6{success-rate}%"
+    - ""
+    - "&7当前孔位: &6{current-slots}"
+
+confirm-button:
+  enabled:
+    material: PAPER
+    display-name: "&a确认打孔"
+    # 自定义模型数据，设置为 0 或负数禁用
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+    lore:
+      - "&7点击添加宝石孔"
+      - "&7成功率: &6{success-rate}%"
+  disabled:
+    material: PAPER
+    display-name: "&c无法打孔"
+    # 自定义模型数据，设置为 0 或负数禁用
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+
+# 自定义按钮 - 可配置多个不同操作的按钮
+custom-buttons:
+  close-button:
+    enabled: true          # 设置为 true 启用此按钮
+    slot: 0                # 按钮槽位位置 (0-53)
+    material: PAPER       # 按钮物品材质
+    display-name: "&c关闭"   # 按钮名称
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+    lore:                   # 按钮描述
+      - "&7点击关闭界面"
+    action: close           # 操作类型: close 或 command
+    command: ""             # action 为 command 时执行的命令（不带 /），支持 {player} 占位符
+  
+  # 示例：额外的自定义按钮
+  # help-button:
+  #   enabled: false
+  #   slot: 48
+  #   material: BOOK
+  #   display-name: "&e帮助"
+  #   custom-model-data: 0
+  #   lore:
+  #     - "&7点击获取帮助"
+  #   action: command
+  #   command: "help gems"
+
+# 宝石孔类型切换按钮
+gem-type-switch-button:
+  display-name: "&e当前: {gem-type}"
+  lore:
+    - "&7点击切换宝石孔类型"
+    - ""
+    - "&7可用类型:"
+    - "&c红色宝石孔"
+    - "&9蓝宝石孔"
+    - "&a翡翠宝石孔"

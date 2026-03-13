@@ -1,0 +1,131 @@
+# 宝石镶嵌 GUI 配置
+# 宝石镶嵌界面配置
+
+# 警告：如果你发现镶嵌宝石后物品的名称和描述为空，
+# 请前往 mmoitems 的 material 下的 gem_stone 宝石配置
+# 将 displayed-type: "&c红色宝石" 注释或删除！
+# 否则这会导致你的镶嵌无法正常工作！
+
+# GUI 设置
+title: "<shift:-6>§f펡"
+rows: 3
+
+slots:
+  item: 14       # 物品放置槽位
+  gem: 11        # 宝石放置槽位
+  confirm: 20    # 确认按钮槽位
+  info: 8       # 信息显示槽位
+  filler:        # 填充物品
+    enabled: false  # 设置为 false 禁用填充（使用空气代替）
+    material: PAPER
+    display-name: " "
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+
+item-display:
+  material: PAPER
+  display-name: "&e放置物品"
+  custom-model-data: 810001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  lore:
+    - "&7在此处放置有空宝石孔的物品"
+
+gem-display:
+  material: PAPER
+  display-name: "&e放置宝石"
+  custom-model-data: 800001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  lore:
+    - "&7在此处放置要镶嵌的宝石"
+
+info-display:
+  material: PAPER
+  display-name: "&a宝石镶嵌"
+  custom-model-data: 800001
+  #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+  # 占位符：
+  # {empty-slots} - 空宝石孔数量
+  # {slot-types} - 槽位类型列表（自动生成）
+  # {gem-type} - 宝石类型
+  # {success-rate} - 成功率
+  # {cost} - 金钱花费
+  # {exp-cost} - 经验花费
+  lore:
+    has-item:
+      has-slots:
+        - "&7空宝石孔: &6{empty-slots}"
+        - "&7槽位类型:"
+        - "{slot-types}"
+        - ""
+        - "&e花费: &6{cost}"
+        - "&e经验花费: &6{exp-cost} 经验"
+      no-slots:
+        - "&c此物品没有空宝石孔"
+    no-item:
+      - "&7请放置一个有空宝石孔的物品"
+    has-gem:
+      - "&7宝石类型: &6{gem-type}"
+      - "&7成功率: &6{success-rate}%"
+      - ""
+      - "&e花费: &6{cost}"
+      - "&e经验花费: &6{exp-cost} 经验"
+    no-gem:
+      - "&7请放置一颗宝石"
+
+confirm-button:
+  enabled:
+    material: PAPER
+    display-name: "&a确认镶嵌"
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+    lore:
+      - "&7点击镶嵌宝石"
+      - "&7成功率: &6{success-rate}%"
+  disabled:
+    material: PAPER
+    display-name: "&c无法镶嵌"
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+    # 不同情况的错误消息
+    # 占位符: {gem-type}, {slot-types}
+    no-item:
+      - "&7请放置一个有空宝石孔的物品"
+    no-gem:
+      - "&7请放置一颗宝石"
+    invalid-gem:
+      - "&7这不是一颗有效的宝石"
+    no-empty-slots:
+      - "&7此物品没有空宝石孔"
+    type-mismatch:
+      - "&7宝石类型不匹配"
+      - "&7宝石类型: &6{gem-type}"
+      - "&7可用槽位: &6{slot-types}"
+    item-type-restriction:
+      - "&c此宝石无法镶嵌到此类型的物品"
+      - "&7允许的物品类型: &6{allowed-types}"
+
+# 自定义按钮 - 可配置多个不同操作的按钮
+custom-buttons:
+  close-button:
+    enabled: true          # 设置为 true 启用此按钮
+    slot: 0                # 按钮槽位位置 (0-53)
+    material: PAPER       # 按钮物品材质
+    display-name: "&c关闭"   # 按钮名称
+    custom-model-data: 800001
+    #item-model: ""  # 可选：设置 1.21+ 的自定义物品模型
+    lore:                   # 按钮描述
+      - "&7点击关闭界面"
+    action: close           # 操作类型: close 或 command
+    command: ""             # action 为 command 时执行的命令（不带 /），支持 {player} 占位符
+  
+  # 示例：额外的自定义按钮
+  # help-button:
+  #   enabled: false
+  #   slot: 48
+  #   material: BOOK
+  #   display-name: "&e帮助"
+  #   custom-model-data: 0
+  #   lore:
+  #     - "&7点击获取帮助"
+  #   action: command
+  #   command: "help gems"
