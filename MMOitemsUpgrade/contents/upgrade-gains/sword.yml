@@ -1,0 +1,33 @@
+# SWORD 类型专用强化属性增益
+# 所有 MMOItems Type 为 SWORD 的物品使用此配置
+
+type: SWORD
+
+levels:
+  # 1-5级
+  1:
+    ATTACK_DAMAGE: "5%"
+    CRITICAL_STRIKE_CHANCE: "1%"
+  # 6-10级
+  6:
+    ATTACK_DAMAGE: "8%"
+    CRITICAL_STRIKE_CHANCE: "2%"
+    CRITICAL_STRIKE_POWER: "3%"
+    # 6级获得速度药水效果
+    PERM_EFFECTS:
+      SPEED: 1
+  # 10级额外奖励
+  10:
+    ATTACK_DAMAGE: "10%"
+    CRITICAL_STRIKE_CHANCE: "3%"
+    CRITICAL_STRIKE_POWER: "5%"
+    # 10级获得更强药水效果
+    PERM_EFFECTS:
+      SPEED: 2
+      STRENGTH: 1
+    # 10级获得技能
+    ABILITIES:
+      - type: FIREBOLT
+        mode: RIGHT_CLICK
+        cooldown: 5
+        damage: 20

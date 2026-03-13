@@ -1,0 +1,176 @@
+# MMOitemsUpgrade GUI配置文件
+
+# GUI标题
+title: "<shift:-6>§f펟"
+
+# GUI大小 (行数, 1-6)
+rows: 4
+
+# 槽位配置
+slots:
+  # 物品输入槽
+  input: 22
+  
+  # 强化按钮槽
+  upgrade-button: 28
+  
+  # 材料输入槽 (列表)
+  materials: [24, 25, 26, 33, 34, 35]
+  
+  # 卷轴槽位
+  scroll: 19
+
+# 界面物品配置
+items:
+  # 背景物品
+  background:
+    material: AIR
+    name: " "
+    # 自定义模型数据 (可选)
+    # custom-model-data: 1000
+    # 物品模型 (1.21+ 可选)
+    # item-model: "minecraft:gold_nugget"
+  
+  # 输入槽占位符
+  input-placeholder:
+    material: AIR
+    name: "&c请放入待强化的物品"
+    # custom-model-data: 1001
+  
+  # 材料槽占位符
+  material-display:
+    material: AIR
+    name: "&e放置材料"
+    lore:
+      - "&7请在此处放入强化材料"
+    # custom-model-data: 1004
+  
+  # 卷轴槽占位符
+  scroll-placeholder:
+    material: AIR
+    name: "&b放置卷轴"
+    lore:
+      - "&7可选：放入成功率提升卷轴"
+    # custom-model-data: 1005
+  
+  # 强化按钮 (条件不足时) - 智能显示缺少的条件
+  upgrade-button-disabled:
+    material: PAPER
+    custom-model-data: 800001
+    name: "&c无法强化"
+    # 基础 lore (总是显示)
+    base-lore:
+      - "&7当前等级: &e{current_level}"
+      - "&7目标等级: &e{next_level}"
+      - ""
+    # 缺少金币时显示 (变量: {need} 需要数量, {have} 当前数量, {missing} 缺少数量)
+    missing-money: "&c✘ 缺少金币: &f{missing} &7(需要 {need}, 拥有 {have})"
+    # 缺少经验时显示
+    missing-exp: "&c✘ 缺少经验: &f{missing} &7(需要 {need}, 拥有 {have})"
+    # 缺少材料时的标题
+    missing-materials-header: "&c✘ 缺少材料:"
+    # 每个缺少的材料 (变量: {name} 材料名, {need} 需要数量, {have} 当前数量)
+    missing-material-item: "  &7- &f{name} &cx{missing} &7(需要 {need}, 拥有 {have})"
+    # 尾部 lore
+    footer-lore:
+      - ""
+      - "&c[!] 请补齐所需条件 [!]"
+  
+  # 强化按钮 (条件满足时) - 显示成功率和加成信息
+  upgrade-button-enabled:
+    material: PAPER
+    custom-model-data: 800001
+    name: "&a点击强化物品"
+    # 基础信息
+    base-lore:
+      - "&7当前等级: &e{current_level}"
+      - "&7目标等级: &e{next_level}"
+      - ""
+    # 成功率显示
+    success-rate-line: "&7成功率: &b{rate}%"
+    # 卷轴加成显示 (有卷轴时显示，变量: {bonus} 加成值)
+    scroll-bonus-line: "&7  └ 卷轴加成: &a+{bonus}%"
+    # 属性预览标题 (有属性变化时显示)
+    attribute-preview-header: "&e▸ 属性变化预览:"
+    # 每个属性行 (变量: {name} 属性名, {current} 当前值, {next} 下一等级值, {diff} 差值)
+    attribute-preview-item: "  &7{name}: &f{current} &a→ &e{next} &7(&a+{diff}&7)"
+    # AuraSkills 加成区域 (仅当安装 AuraSkills 且有加成时显示)
+    auraskills-header: "&d▸ AuraSkills 加成:"
+    auraskills-skill-bonus: "  &7技能加成: &a+{bonus}%"
+    auraskills-luck-bonus: "  &7幸运加成: &a+{bonus}%"
+    auraskills-total-bonus: "  &7总加成: &a+{bonus}%"
+    auraskills-wisdom-reduction: "  &7智慧减免: &e-{reduction}% 消耗"
+    # 消耗信息
+    cost-header: "&6▸ 强化消耗:"
+    cost-money: "  &7金币: &f{amount}"
+    cost-exp: "  &7经验: &f{amount}"
+    cost-material: "  &7{name}: &fx{amount}"
+    # 尾部
+    footer-lore:
+      - ""
+      - "&e▶ 点击开始强化 ◀"
+
+# 自定义按钮配置
+# 可以配置多个按钮，支持执行命令
+custom-buttons:
+  # 示例按钮：帮助信息
+  help:
+    # 槽位列表，可以放在多个位置
+    slots: [8]
+    # 物品材质
+    material: PAPER
+    custom-model-data: 800001
+    # 显示名称
+    name: "&e帮助信息"
+    # 物品描述
+    lore:
+      - "&7点击查看插件帮助"
+      - "&7再次点击关闭"
+    # 自定义模型数据 (可选)
+    # custom-model-data: 10
+    # 物品模型 (1.21+ 可选)
+    # item-model: "minecraft:book"
+    
+    # 点击执行的命令列表
+    # [console] 前缀表示由控制台执行
+    # [player] 前缀或无前缀表示由玩家执行
+    # {player} 占位符会被替换为玩家名
+    commands:
+      - "[player] mmoupgrade help"
+      - "[close]"
+  close:
+    # 槽位列表，可以放在多个位置
+    slots: [0]
+    # 物品材质
+    material: PAPER
+    custom-model-data: 800001
+    # 显示名称
+    name: "&e关闭"
+    # 物品描述
+    lore: []
+    # 自定义模型数据 (可选)
+    # custom-model-data: 10
+    # 物品模型 (1.21+ 可选)
+    # item-model: "minecraft:book"
+    
+    # 点击执行的命令列表
+    # [console] 前缀表示由控制台执行
+    # [player] 前缀或无前缀表示由玩家执行
+    # {player} 占位符会被替换为玩家名
+    commands:
+      - "[player] mmoupgrade help"
+      - "[close]"
+  u:
+    slots: [3]
+    material: PAPER
+    custom-model-data: 810004
+    name: "&c重铸"
+    commands:
+      - "[player] mmoreforge reforge"
+  u2:
+    slots: [4]
+    material: PAPER
+    custom-model-data: 810004
+    name: "&c重铸"
+    commands:
+      - "[player] mmoreforge reforge"
