@@ -1,0 +1,42 @@
+# Enhancement Scroll Configuration
+# 强化卷配置 - 拖放到MMOItems武器上即可直接强化到指定等级
+
+# 强化卷列表
+scrolls:
+  # 示例: +7 强化卷
+  upgrade_scroll_7:
+    # 匹配方式: MMOITEM (MMOItems物品), VANILLA (原版物品), CUSTOM (自定义模型)
+    type: MMOITEM
+    # MMOItems 类型 (当 type 为 MMOITEM 时使用)
+    mmo-type: "CONSUMABLE"
+    # MMOItems ID (当 type 为 MMOITEM 时使用)
+    mmo-id: "UPGRADE_SCROLL_7"
+    # 目标强化等级
+    target-level: 7
+    # 是否消耗强化卷
+    consume: true
+    # 是否允许降级 (如果当前等级高于目标等级)
+    allow-downgrade: false
+    # 使用时播放的音效
+    sound: "ENTITY_PLAYER_LEVELUP"
+    # 使用时的粒子效果 (可选)
+    particle: "VILLAGER_HAPPY"
+    
+  # 示例: +10 强化卷
+  upgrade_scroll_10:
+    type: MMOITEM
+    mmo-type: "CONSUMABLE"
+    mmo-id: "UPGRADE_SCROLL_10"
+    target-level: 10
+    consume: true
+    allow-downgrade: false
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    particle: "TOTEM_OF_UNDYING"
+    
+  # 示例: 使用原版物品作为强化卷
+  # vanilla_scroll:
+  #   type: VANILLA
+  #   material: "ENCHANTED_BOOK"
+  #   custom-model-data: 1001
+  #   target-level: 5
+  #   consume: true
