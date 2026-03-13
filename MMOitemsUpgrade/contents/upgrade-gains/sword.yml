@@ -1,0 +1,33 @@
+# Specific upgrade attribute gains for SWORD type
+# All items with MMOItems Type: SWORD use this configuration
+
+type: SWORD
+
+levels:
+  # Levels 1-5
+  1:
+    ATTACK_DAMAGE: "5%"
+    CRITICAL_STRIKE_CHANCE: "1%"
+  # Levels 6-10
+  6:
+    ATTACK_DAMAGE: "8%"
+    CRITICAL_STRIKE_CHANCE: "2%"
+    CRITICAL_STRIKE_POWER: "3%"
+    # Level 6 rewards Speed potion effect
+    PERM_EFFECTS:
+      SPEED: 1
+  # Level 10 bonus rewards
+  10:
+    ATTACK_DAMAGE: "10%"
+    CRITICAL_STRIKE_CHANCE: "3%"
+    CRITICAL_STRIKE_POWER: "5%"
+    # Level 10 rewards stronger potion effects
+    PERM_EFFECTS:
+      SPEED: 2
+      STRENGTH: 1
+    # Level 10 rewards an ability
+    ABILITIES:
+      - type: FIREBOLT
+        mode: RIGHT_CLICK
+        cooldown: 5
+        damage: 20

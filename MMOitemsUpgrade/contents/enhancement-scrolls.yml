@@ -1,0 +1,42 @@
+# Enhancement Scroll Configuration
+# Enhancement Scroll Config - Drag and drop onto MMOItems weapons to directly upgrade to specified level
+
+# Enhancement Scroll List
+scrolls:
+  # Example: +7 Enhancement Scroll
+  upgrade_scroll_7:
+    # Match Type: MMOITEM (MMOItems item), VANILLA (Vanilla item), CUSTOM (Custom model)
+    type: MMOITEM
+    # MMOItems Type (Used when type is MMOITEM)
+    mmo-type: "CONSUMABLE"
+    # MMOItems ID (Used when type is MMOITEM)
+    mmo-id: "UPGRADE_SCROLL_7"
+    # Target Upgrade Level
+    target-level: 7
+    # Whether to consume the enhancement scroll
+    consume: true
+    # Whether to allow downgrade (If current level is higher than target level)
+    allow-downgrade: false
+    # Sound played when used
+    sound: "ENTITY_PLAYER_LEVELUP"
+    # Particle effect when used (Optional)
+    particle: "VILLAGER_HAPPY"
+    
+  # Example: +10 Enhancement Scroll
+  upgrade_scroll_10:
+    type: MMOITEM
+    mmo-type: "CONSUMABLE"
+    mmo-id: "UPGRADE_SCROLL_10"
+    target-level: 10
+    consume: true
+    allow-downgrade: false
+    sound: "UI_TOAST_CHALLENGE_COMPLETE"
+    particle: "TOTEM_OF_UNDYING"
+    
+  # Example: Using Vanilla item as an enhancement scroll
+  # vanilla_scroll:
+  #   type: VANILLA
+  #   material: "ENCHANTED_BOOK"
+  #   custom-model-data: 1001
+  #   target-level: 5
+  #   consume: true

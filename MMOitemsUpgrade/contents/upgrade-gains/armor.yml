@@ -1,0 +1,15 @@
+# Specific upgrade attribute gains for ARMOR type
+# All items with MMOItems Type: ARMOR use this configuration
+
+type: ARMOR
+
+levels:
+  # Levels 1-5
+  1:
+    DEFENSE: "3%"
+    MAX_HEALTH: "2%"
+  # Levels 6-10
+  6:
+    DEFENSE: "5%"
+    MAX_HEALTH: "4%"
+    KNOCKBACK_RESISTANCE: "2%"

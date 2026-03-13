@@ -1,0 +1,60 @@
+# Upgrade Scroll Configuration
+# Scrolls are identified by MMOItems Type:ID
+
+scrolls:
+  # Common Scroll (Fixed +5%)
+  common_scroll:
+    mmoitem: "CONSUMABLE:COMMON_SCROLL"
+    display-name: "&aCommon Scroll"
+    type: SUCCESS_RATE
+    bonus: 0.05
+    
+  # Rare Scroll (Fixed +10%)
+  rare_scroll:
+    mmoitem: "CONSUMABLE:RARE_SCROLL"
+    display-name: "&9Rare Scroll"
+    type: SUCCESS_RATE
+    bonus: 0.10
+    
+  # Epic Scroll (Fixed +20%)
+  epic_scroll:
+    mmoitem: "CONSUMABLE:EPIC_SCROLL"
+    display-name: "&5Epic Scroll"
+    type: SUCCESS_RATE
+    bonus: 0.20
+    
+  # Legendary Scroll (Fixed +30%)
+  legendary_scroll:
+    mmoitem: "CONSUMABLE:LEGENDARY_SCROLL"
+    display-name: "&6Legendary Scroll"
+    type: SUCCESS_RATE
+    bonus: 0.30
+
+  # Random Scroll (Low) - 10%~20% range
+  random_scroll_low:
+    mmoitem: "CONSUMABLE:RANDOM_SCROLL_LOW"
+    display-name: "&bRandom Scroll (Low)"
+    type: SUCCESS_RATE
+    bonus-min: 0.10
+    bonus-max: 0.20
+    
+  # Random Scroll (High) - 20%~30% range
+  random_scroll_high:
+    mmoitem: "CONSUMABLE:RANDOM_SCROLL_HIGH"
+    display-name: "&dRandom Scroll (High)"
+    type: SUCCESS_RATE
+    bonus-min: 0.20
+    bonus-max: 0.30
+
+  # Protection Scroll - Prevents item destruction on failure, but level still drops
+  protection_scroll:
+    mmoitem: "CONSUMABLE:PROTECTION_SCROLL"
+    display-name: "&6Protection Scroll"
+    type: PROTECTION
+    
+  # Upgrade Amplifier - No level drop on failure, but success rate is reduced
+  amplifier_scroll:
+    mmoitem: "CONSUMABLE:AMPLIFIER_SCROLL"
+    display-name: "&cUpgrade Amplifier"
+    type: AMPLIFIER
+    success-penalty: 0.10  # Success rate reduced by 10%
